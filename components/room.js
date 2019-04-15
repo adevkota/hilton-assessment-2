@@ -2,17 +2,17 @@ import styled from "styled-components";
 
 const RoomWrapper = styled.div`
 	border-radius: 4px;
-	border: 4px solid #e7e7e7;
+	border: 4px solid ${props => props.selected? "#e7e7e7": "#cdd1dc"};
 	margin: 10px;
 `;
 const RoomHeader = styled.div`
-	background-color: #e7e7e7;
+	background-color: ${props => props.selected ? "#e7e7e7": "#dbdbe3"};
 	padding: 5px;
 	display: flex;
 
 `;
 const RoomContent = styled.div`
-	background-color: white;
+	background-color: ${props => props.selected? "white": "#dbdbe3"};
 	display: flex;
 `;
 
@@ -28,10 +28,12 @@ const HeadCountWrapper = styled.div`
 	}
 `;
 
-function changeHandler(){}
+function changeHandler(){
+	console.log('x');
+}
 const Room = ({selected, index, selectable, numOfAdults, numOfChildren}) => (
-	<RoomWrapper>
-		<RoomHeader>
+	<RoomWrapper selected={selected}>
+		<RoomHeader selected={selected}>
 			{
 				selectable ?
 					<input type="checkbox" defaultChecked={selected}></input>
@@ -42,11 +44,14 @@ const Room = ({selected, index, selectable, numOfAdults, numOfChildren}) => (
 			</span>
 			
 		</RoomHeader>
-		<RoomContent>
+		<RoomContent selected={selected}>
 			<HeadCountWrapper>
 				<span>Adults</span>
 				<span>(18+)</span>
-				<select value={numOfAdults} onChange={changeHandler()}>
+				<select 
+					disabled={!selected}
+					value={numOfAdults}
+					onChange={changeHandler()}>
 					<option value="1">1</option>
 					<option value="2">2</option>
           </select>
