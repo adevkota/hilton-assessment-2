@@ -24,7 +24,7 @@ const reducer = (state = defaultState, action) => {
 		case 'ROOM_SELECTED':
 			console.log('room selected')
 			rooms = state.rooms.map((room, index) => {
-				if (index !== action.index) {
+				if (index > action.index) {
 					return room;
 				}
 				return {
@@ -38,7 +38,7 @@ const reducer = (state = defaultState, action) => {
 			}
 		case 'ROOM_UNSELECTED':
 			rooms = state.rooms.map((room, index) => {
-				if (index !== action.index) {
+				if (index < action.index) {
 					return room;
 				}
 				return {
