@@ -42,8 +42,7 @@ const reducer = (state = defaultState, action) => {
 					return room;
 				}
 				return {
-					...room,
-					selected: false
+					...defaultRoomState
 				}
 			});
 			return {
