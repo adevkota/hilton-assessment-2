@@ -4,7 +4,7 @@ import {createStore} from "redux";
 const defaultRoomState= {
 	selected: false,
 	numOfAdults: 1,
-	numOfChildred: 2,
+	numOfChildren: 0,
 	selectable: true
 }
 const defaultState = {
