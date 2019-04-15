@@ -30,11 +30,24 @@ function mapDispatchToProps(dispatch) {
 				index
 			})
 		},
-
 		roomUnselected: (index) => {
 			dispatch({
 				type: "ROOM_UNSELECTED",
 				index
+			})
+		},
+		numOfAdultsChanged: (index, value) => {
+			dispatch({
+				type: "NUMBER_OF_ADULT_CHANGED",
+				index,
+				value
+			})
+		},
+		numOfChildrenChanged: (index, value) => {
+			dispatch({
+				type: "NUMBER_OF_CHILDREN_CHANGED",
+				index,
+				value
 			})
 		},
 	}

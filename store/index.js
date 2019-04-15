@@ -50,6 +50,34 @@ const reducer = (state = defaultState, action) => {
 				...state,
 				rooms
 			}
+		case 'NUMBER_OF_ADULT_CHANGED':
+			rooms = state.rooms.map((room, index) => {
+				if (index !== action.index) {
+					return room;
+				}
+				return {
+					...room,
+					numOfAdults: action.value
+				}
+			});
+			return {
+				...state,
+				rooms
+			}
+		case 'NUMBER_OF_CHILDREN_CHANGED':
+			rooms = state.rooms.map((room, index) => {
+				if (index !== action.index) {
+					return room;
+				}
+				return {
+					...room,
+					numOfChildren: action.value
+				}
+			});
+			return {
+				...state,
+				rooms
+			}
 		default:
 			return state
 	}

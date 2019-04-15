@@ -31,7 +31,7 @@ const HeadCountWrapper = styled.div`
 function selectChangeHandler($event){
 	console.log($event.target.checked);
 }
-const Room = ({selected, index, selectable, numOfAdults, numOfChildren, roomSelected, roomUnselected}) => (
+const Room = ({selected, index, selectable, numOfAdults, numOfChildren, roomSelected, roomUnselected, numOfAdultsChanged, numOfChildrenChanged}) => (
 	<RoomWrapper selected={selected}>
 		<RoomHeader selected={selected}>
 			{
@@ -51,7 +51,7 @@ const Room = ({selected, index, selectable, numOfAdults, numOfChildren, roomSele
 				<select 
 					disabled={!selected}
 					value={numOfAdults}
-					onChange={selectChangeHandler}>
+					onChange={e => numOfAdultsChanged(index, e.target.value)}>
 					<option value="1">1</option>
 					<option value="2">2</option>
           </select>
@@ -62,7 +62,7 @@ const Room = ({selected, index, selectable, numOfAdults, numOfChildren, roomSele
 				<select
 					disabled={!selected}
 					value={numOfChildren} 
-					onChange={selectChangeHandler} >
+					onChange={e => numOfChildrenChanged(index, e.target.value)} >
 					<option value="0">0</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
