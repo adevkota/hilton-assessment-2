@@ -15,12 +15,29 @@ const Page = ({rooms, ...props}) => {
 		<Rooms>
 			{
 				rooms.map( (room, index)=> (
-					<Room key={index} {...room} index={index}></Room>
+					<Room key={index} {...room} {...props} index={index}></Room>
 				))
 			}
 		</Rooms>
 	)
 }
 
+function mapDispatchToProps(dispatch) {
+	return {
+		roomSelected: (index) => {
+			dispatch({
+				type: "ROOM_SELECTED",
+				index
+			})
+		},
 
-export default connect(state => state)(Page);
+		roomUnselected: (index) => {
+			dispatch({
+				type: "ROOM_UNSELECTED",
+				index
+			})
+		},
+	}
+}
+
+export default connect(state => state, mapDispatchToProps)(Page);
