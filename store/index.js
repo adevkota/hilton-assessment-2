@@ -1,7 +1,22 @@
 
 import {createStore} from "redux";
 
-const reducer = (state = {foo: ''}, action) => {
+const defaultRoomState= {
+	selected: false,
+	numOfAdults: 1,
+	numOfChildred: 2,
+	selectable: true
+}
+const defaultState = {
+	rooms: [
+		{...defaultRoomState, selected: true, selectable: false},
+		{...defaultRoomState},
+		{...defaultRoomState},
+		{...defaultRoomState},
+	],
+	foo: 'ha'
+}
+const reducer = (state = defaultState, action) => {
 	switch (action.type) {
 		 case 'FOO':
 			  return {...state, foo: action.payload};
