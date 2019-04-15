@@ -1,5 +1,6 @@
 
 import { createStore } from "redux";
+import { loadState } from "../util/persistHelper";
 
 const defaultRoomState = {
 	selected: false,
@@ -16,11 +17,17 @@ const defaultState = {
 	],
 	foo: 'ha'
 }
+
+
 const reducer = (state = defaultState, action) => {
 	let rooms;
 	switch (action.type) {
 		case 'FOO':
-			return { ...state, foo: action.payload };
+			return { 
+				...state,
+				...loadState(),
+				foo: action.payload 
+			};
 		case 'ROOM_SELECTED':
 			console.log('room selected')
 			rooms = state.rooms.map((room, index) => {
@@ -78,10 +85,10 @@ const reducer = (state = defaultState, action) => {
 				rooms
 			}
 		default:
-			return state
+			return state;
 	}
 };
-
-export const makeStore = (initialState, options) => {
-	return createStore(reducer, initialState);
+const savedState = loadState();
+export const makeStore = (initialState = savedState, options) => {
+	return createStore(reducer, savedState);
 }

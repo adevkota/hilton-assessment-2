@@ -1,24 +1,35 @@
 import { connect } from "react-redux";
 import Room from "./room";
 import styled from "styled-components";
+import { saveState } from "../util/persistHelper";
 
-const Form = styled.form`
-
-`
 const Rooms = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 `
-
+const Button = styled.button`
+	padding: 5px 10px;
+	margin: 5px 10px;
+`
+function handleSubmit(e, rooms){
+	saveState({rooms});
+	e.preventDefault();
+}
 const Page = ({rooms, ...props}) => {
 	return (
-		<Rooms>
-			{
-				rooms.map( (room, index)=> (
-					<Room key={index} {...room} {...props} index={index}></Room>
-				))
-			}
-		</Rooms>
+		<div>
+		<form onSubmit={e => handleSubmit(e, rooms)}>
+			<Rooms>
+				{
+					rooms.map( (room, index)=> (
+						<Room key={index} {...room} {...props} index={index}></Room>
+					))
+				}
+			</Rooms>
+			<Button type="submit">Submit</Button>
+		</form>
+			<Button onClick={e => props.loadFromCache()}>Load</Button>
+	</div>
 	)
 }
 
@@ -50,6 +61,13 @@ function mapDispatchToProps(dispatch) {
 				value
 			})
 		},
+		loadFromCache: () => {
+			dispatch({
+				type: "FOO",
+				payload: "bar"
+			})
+		}
+
 	}
 }
 
