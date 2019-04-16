@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div
+  className="room__RoomWrapper-sc-14aj6pk-0 hJldwd"
+  selected={true}
+>
+  <div
+    className="room__RoomHeader-sc-14aj6pk-1 enkvyc"
+    selected={true}
+  >
+    <input
+      checked={true}
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <span>
+      Room 
+      2
+    </span>
+  </div>
+  <div
+    className="room__RoomContent-sc-14aj6pk-2 dFTFTL"
+    selected={true}
+  >
+    <div
+      className="room__HeadCountWrapper-sc-14aj6pk-3 dNzWIe"
+    >
+      <span>
+        Adults
+      </span>
+      <span>
+        (18+)
+      </span>
+      <select
+        disabled={false}
+        onChange={[Function]}
+        value={1}
+      >
+        <option
+          value="1"
+        >
+          1
+        </option>
+        <option
+          value="2"
+        >
+          2
+        </option>
+      </select>
+    </div>
+    <div
+      className="room__HeadCountWrapper-sc-14aj6pk-3 dNzWIe"
+    >
+      <span>
+        Children
+      </span>
+      <span>
+        (0-17)
+      </span>
+      <select
+        disabled={false}
+        onChange={[Function]}
+        value={1}
+      >
+        <option
+          value="0"
+        >
+          0
+        </option>
+        <option
+          value="1"
+        >
+          1
+        </option>
+        <option
+          value="2"
+        >
+          2
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+`;
