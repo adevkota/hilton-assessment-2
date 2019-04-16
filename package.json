@@ -7,7 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +22,12 @@
     "styled-components": "4.2.0"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "1.10.0"
+    "babel-jest": "24.7.1",
+    "babel-plugin-styled-components": "1.10.0",
+    "enzyme": "3.9.0",
+    "enzyme-adapter-react-16": "1.12.1",
+    "jest": "24.7.1",
+    "jest-localstorage-mock": "2.4.0",
+    "react-test-renderer": "16.8.6"
   }
 }
