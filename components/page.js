@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import Room from "./room";
 import styled from "styled-components";
 import { saveState, loadState } from "../util/persistHelper";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 
 const Rooms = styled.div`
 	display: flex;
@@ -20,7 +20,6 @@ const Page = ({rooms, ...props}) => {
 	useEffect(() => {
 		let savedState = loadState();
 		let savedRooms = savedState? savedState.rooms: undefined;
-		console.log(props);
 		props.loadFromCache(savedRooms);
 
 	}, [])

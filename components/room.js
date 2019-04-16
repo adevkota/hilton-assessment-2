@@ -27,10 +27,6 @@ const HeadCountWrapper = styled.div`
 		margin: 5px;
 	}
 `;
-
-function selectChangeHandler($event){
-	console.log($event.target.checked);
-}
 const Room = ({selected, index, selectable, numOfAdults, numOfChildren, roomSelected, roomUnselected, numOfAdultsChanged, numOfChildrenChanged}) => (
 	<RoomWrapper selected={selected}>
 		<RoomHeader selected={selected}>

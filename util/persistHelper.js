@@ -19,8 +19,7 @@ export const loadState = () => {
 			room.numOfChildren = +room.numOfChildren;
 			room.selected = !!room.selected;
 			return room;
-		})
-		console.log("serializedState++++++++", retVal)
+		});
 		return retVal;
 	} catch (err) {
 	  return undefined;

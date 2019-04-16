@@ -6,6 +6,7 @@ const defaultRoomState = {
 	selected: false,
 	numOfAdults: 1,
 	numOfChildren: 0,
+	selectable: true,
 }
 const defaultState = {
 	rooms: [
@@ -20,7 +21,6 @@ const defaultState = {
 
 const reducer = (state = defaultState, action) => {
 	let rooms;
-	console.log(action.type)
 	switch (action.type) {
 		case 'FOO':
 			let savedRooms = action.payload.savedRooms;
