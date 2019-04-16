@@ -1,7 +1,8 @@
 import { connect } from "react-redux";
 import Room from "./room";
 import styled from "styled-components";
-import { saveState } from "../util/persistHelper";
+import { saveState, loadState } from "../util/persistHelper";
+import {useEffect, useState} from "react";
 
 const Rooms = styled.div`
 	display: flex;
@@ -16,19 +17,25 @@ function handleSubmit(e, rooms){
 	e.preventDefault();
 }
 const Page = ({rooms, ...props}) => {
+	useEffect(() => {
+		let savedState = loadState();
+		let savedRooms = savedState? savedState.rooms: undefined;
+		console.log(props);
+		props.loadFromCache(savedRooms);
+
+	}, [])
 	return (
 		<div>
 		<form onSubmit={e => handleSubmit(e, rooms)}>
 			<Rooms>
 				{
 					rooms.map( (room, index)=> (
-						<Room key={index} {...room} {...props} index={index}></Room>
+						<Room key={index.toString()} {...room} {...props} index={index}></Room>
 					))
 				}
 			</Rooms>
 			<Button type="submit">Submit</Button>
 		</form>
-			<Button onClick={e => props.loadFromCache()}>Load</Button>
 	</div>
 	)
 }
@@ -61,10 +68,10 @@ function mapDispatchToProps(dispatch) {
 				value
 			})
 		},
-		loadFromCache: () => {
+		loadFromCache: (savedRooms) => {
 			dispatch({
 				type: "FOO",
-				payload: "bar"
+				payload: { fooVal: "bar", savedRooms}
 			})
 		}
 

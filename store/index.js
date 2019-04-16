@@ -6,7 +6,6 @@ const defaultRoomState = {
 	selected: false,
 	numOfAdults: 1,
 	numOfChildren: 0,
-	selectable: true
 }
 const defaultState = {
 	rooms: [
@@ -15,21 +14,35 @@ const defaultState = {
 		{ ...defaultRoomState },
 		{ ...defaultRoomState },
 	],
-	foo: 'ha'
+	foo: 'ha',
 }
 
 
 const reducer = (state = defaultState, action) => {
 	let rooms;
+	console.log(action.type)
 	switch (action.type) {
 		case 'FOO':
-			return { 
-				...state,
-				...loadState(),
-				foo: action.payload 
+			let savedRooms = action.payload.savedRooms;
+			if (savedRooms) {
+				rooms = state.rooms.map((room, index) => {
+					if (savedRooms) {
+						return {
+							...savedRooms[index]
+						};
+					}
+					return room;
+				})
+
+				return {
+					...state,
+					rooms
+				}
+			}
+			return {
+				...state
 			};
 		case 'ROOM_SELECTED':
-			console.log('room selected')
 			rooms = state.rooms.map((room, index) => {
 				if (index > action.index) {
 					return room;
@@ -85,10 +98,9 @@ const reducer = (state = defaultState, action) => {
 				rooms
 			}
 		default:
-			return state;
+			return { ...state};
 	}
 };
-const savedState = loadState();
-export const makeStore = (initialState = savedState, options) => {
-	return createStore(reducer, savedState);
+export const makeStore = (initialState , options) => {
+	return createStore(reducer, initialState);
 }
