@@ -8,7 +8,7 @@ const defaultRoomState = {
 	numOfChildren: 0,
 	selectable: true,
 }
-const defaultState = {
+export const defaultState = {
 	rooms: [
 		{ ...defaultRoomState, selected: true, selectable: false },
 		{ ...defaultRoomState },
@@ -16,7 +16,7 @@ const defaultState = {
 		{ ...defaultRoomState },
 	],
 	foo: 'ha',
-}
+};
 
 
 const reducer = (state = defaultState, action) => {

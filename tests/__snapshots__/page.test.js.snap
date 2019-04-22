@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot for a selectable room 1`] = `
+<div>
+  <form
+    onSubmit={[Function]}
+  >
+    <div
+      className="page__Rooms-sc-1ls9xiw-0 pTDeI"
+    >
+      <div
+        className="room__RoomWrapper-sc-14aj6pk-0 gDnqyN"
+        selected={false}
+      >
+        <div
+          className="room__RoomHeader-sc-14aj6pk-1 ekliE"
+          selected={false}
+        >
+          <input
+            checked={false}
+            onChange={[Function]}
+            type="checkbox"
+          />
+          <span>
+            Room 
+            1
+          </span>
+        </div>
+        <div
+          className="room__RoomContent-sc-14aj6pk-2 cWkNCU"
+          selected={false}
+        >
+          <div
+            className="room__HeadCountWrapper-sc-14aj6pk-3 dNzWIe"
+          >
+            <span>
+              Adults
+            </span>
+            <span>
+              (18+)
+            </span>
+            <select
+              className="adult"
+              disabled={true}
+              onChange={[Function]}
+              value={1}
+            >
+              <option
+                value="1"
+              >
+                1
+              </option>
+              <option
+                value="2"
+              >
+                2
+              </option>
+            </select>
+          </div>
+          <div
+            className="room__HeadCountWrapper-sc-14aj6pk-3 dNzWIe"
+          >
+            <span>
+              Children
+            </span>
+            <span>
+              (0-17)
+            </span>
+            <select
+              className="children"
+              disabled={true}
+              onChange={[Function]}
+              value={0}
+            >
+              <option
+                value="0"
+              >
+                0
+              </option>
+              <option
+                value="1"
+              >
+                1
+              </option>
+              <option
+                value="2"
+              >
+                2
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button
+      className="page__Button-sc-1ls9xiw-1 gcvhXZ"
+      type="submit"
+    >
+      Submit
+    </button>
+  </form>
+</div>
+`;
