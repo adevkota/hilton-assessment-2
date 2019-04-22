@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`matches snapshot 1`] = `
+exports[`matches snapshot for a selectable room 1`] = `
 <div
   className="room__RoomWrapper-sc-14aj6pk-0 hJldwd"
   selected={true}
@@ -33,6 +33,7 @@ exports[`matches snapshot 1`] = `
         (18+)
       </span>
       <select
+        className="adult"
         disabled={false}
         onChange={[Function]}
         value={1}
@@ -59,6 +60,89 @@ exports[`matches snapshot 1`] = `
         (0-17)
       </span>
       <select
+        className="children"
+        disabled={false}
+        onChange={[Function]}
+        value={1}
+      >
+        <option
+          value="0"
+        >
+          0
+        </option>
+        <option
+          value="1"
+        >
+          1
+        </option>
+        <option
+          value="2"
+        >
+          2
+        </option>
+      </select>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`matches snapshot for the first room (always selected, cannot be unselected) 1`] = `
+<div
+  className="room__RoomWrapper-sc-14aj6pk-0 hJldwd"
+  selected={true}
+>
+  <div
+    className="room__RoomHeader-sc-14aj6pk-1 enkvyc"
+    selected={true}
+  >
+    
+    <span>
+      Room 
+      1
+    </span>
+  </div>
+  <div
+    className="room__RoomContent-sc-14aj6pk-2 dFTFTL"
+    selected={true}
+  >
+    <div
+      className="room__HeadCountWrapper-sc-14aj6pk-3 dNzWIe"
+    >
+      <span>
+        Adults
+      </span>
+      <span>
+        (18+)
+      </span>
+      <select
+        className="adult"
+        disabled={false}
+        onChange={[Function]}
+        value={1}
+      >
+        <option
+          value="1"
+        >
+          1
+        </option>
+        <option
+          value="2"
+        >
+          2
+        </option>
+      </select>
+    </div>
+    <div
+      className="room__HeadCountWrapper-sc-14aj6pk-3 dNzWIe"
+    >
+      <span>
+        Children
+      </span>
+      <span>
+        (0-17)
+      </span>
+      <select
+        className="children"
         disabled={false}
         onChange={[Function]}
         value={1}

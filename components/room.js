@@ -45,6 +45,7 @@ const Room = ({selected, index, selectable, numOfAdults, numOfChildren, roomSele
 				<span>Adults</span>
 				<span>(18+)</span>
 				<select 
+					className="adult"
 					disabled={!selected}
 					value={numOfAdults}
 					onChange={e => numOfAdultsChanged(index, e.target.value)}>
@@ -56,6 +57,7 @@ const Room = ({selected, index, selectable, numOfAdults, numOfChildren, roomSele
 				<span>Children</span>
 				<span>(0-17)</span>
 				<select
+					className="children"
 					disabled={!selected}
 					value={numOfChildren} 
 					onChange={e => numOfChildrenChanged(index, e.target.value)} >
